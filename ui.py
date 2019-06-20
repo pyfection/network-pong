@@ -91,7 +91,7 @@ class Paddle(Widget):
 class Ball(Widget):
     velocity_x = 0
     velocity_y = 0
-    mod = config.ball_speed_increase
+    mod = 1.
 
     @property
     def radius(self):
@@ -102,6 +102,7 @@ class Ball(Widget):
         self.center = pos
         self.velocity_x = 1
         self.velocity_y = 1
+        self.mod = 1.
 
     def move(self, colliders):
         rem_vel_x = self.velocity_x

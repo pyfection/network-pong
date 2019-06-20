@@ -17,6 +17,8 @@ Instructions:
     - edit the host in config.py to the host's IP address, if you want to play via LAN
     - start server with "python start_server.py"
     - add as many players as you want with "python start_client.py" (resets the game after 5 seconds)
+    - if you have issues connecting to a host via LAN, try opening the port
+        Linux: sudo iptables -A INPUT -p tcp --dport 65432 -j ACCEPT
 
 Estimations:
     - Collision detection: 2 hours
