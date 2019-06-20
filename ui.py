@@ -7,9 +7,11 @@ from kivy.clock import Clock
 from kivy.app import Widget
 from kivy.vector import Vector
 
+import config
 import utils
 from network import Network as Network
 from players.local import Local
+
 
 class Game(Widget):
     def __init__(self, **kwargs):
@@ -28,11 +30,11 @@ class Game(Widget):
     def restart(self):
         for player_id, paddle_i in self.player_paddle_mapping.items():
             paddle = self.paddles[paddle_i]
-            paddle.size = (20, 20)
+            paddle.size = (config.paddle_height, config.paddle_height)
             if paddle.move_x:
-                paddle.width = 50
+                paddle.width = config.paddle_width
             if paddle.move_y:
-                paddle.height = 50
+                paddle.height = config.paddle_width
 
         self.ids.ball.reset((self.center_x, self.center_y+10))
 
@@ -72,6 +74,10 @@ class Game(Widget):
         ]
         self.ids.ball.move(paddle_lines)
 
+        if not self.collide_widget(self.ids.ball):
+            self.restart()
+
+
 
 class Paddle(Widget):
     def move(self, pos):
@@ -85,7 +91,7 @@ class Paddle(Widget):
 class Ball(Widget):
     velocity_x = 0
     velocity_y = 0
-    mod = 1.0
+    mod = config.ball_speed_increase
 
     @property
     def radius(self):

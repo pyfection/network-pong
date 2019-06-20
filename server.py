@@ -38,7 +38,6 @@ class Server:
 
     def threaded_client(self, conn, i, uuid):
         conn.send(str.encode('|'.join((uuid, str(i)))))
-        reply = ''
         while True:
             try:
                 data = conn.recv(2048)
@@ -47,7 +46,6 @@ class Server:
                     conn.send(str.encode("Goodbye"))
                     break
                 else:
-                    # print("Recieved: " + reply)
                     id, pos = reply.split(":")
                     self.positions[id] = pos
 
@@ -55,7 +53,6 @@ class Server:
                     for update in self.updates[uuid]:
                         reply += f'&{update}'
                     self.updates[uuid].clear()
-                    # print("Sending: " + reply)
 
                 conn.sendall(str.encode(reply))
             except Exception as e:

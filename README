@@ -13,14 +13,25 @@ Requirements:
 
 Instructions:
     - run "pip install -r requirements.txt"
+    - edit the host in config.py to the host's IP address, if you want to play via LAN
     - start server with "python start_server.py"
-    - add as many local players as you want with "python start_client.py"
+    - add as many players as you want with "python start_client.py" (resets the game after 5 seconds)
 
 Estimations:
     - Collision detection: 2 hours
     - Set up network capabilities: 4 hours
     - For everything else: 2 hours
 
+Bugs:
+    - If the ball hits the paddle in a certain way from the side, it gets stuck in an infinite loop
+
 Possible features to be added:
     - Scoring system
+    - Replace wall with paddle if player left
     - Choice of paddle for player
+
+Notes:
+    - Based a lot of the network code on https://github.com/techwithtim/network_game
+    - It can be played by opening several local windows
+    - I tried to set it up on another machine, to test it out completely, but it took too long to set up completely,
+        so it is untested over LAN, but should work

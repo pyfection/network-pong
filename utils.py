@@ -28,6 +28,7 @@ def is_between(a, b, c):
     return full_distance > distance(*a, *c) and full_distance > distance(*c, *b)
 
 def to_zero(a, b):
+    """Value closest to zero"""
     if abs(a) < abs(b):
         return a
     return b
