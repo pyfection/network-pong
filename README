@@ -12,6 +12,7 @@ Requirements:
 
 
 Instructions:
+    - make sure to use python 3.7
     - run "pip install -r requirements.txt"
     - edit the host in config.py to the host's IP address, if you want to play via LAN
     - start server with "python start_server.py"
