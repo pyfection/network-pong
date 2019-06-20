@@ -24,7 +24,11 @@ class Server:
         print("Waiting for a connection")
 
         while True:
-            conn, addr = self.connection.accept()
+            try:
+                conn, addr = self.connection.accept()
+            except KeyboardInterrupt:
+                self.connection.close()
+                raise
             uuid = str(uuid4())
             print("Connected to: ", addr, uuid)
 
