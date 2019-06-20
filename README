@@ -1,0 +1,27 @@
+Requirements:
+    Challenge is to write a network capable Pong. Up to 4 player should be able to take part.
+    Each one gets one side of the screen where the paddle can move. If there is less than 4 players the side is a ball reflecting wall.
+    In case of explicit large code quotation please be so honest and state this clearly, because goal for us is to evaluate your work.
+
+    One working day may not be enough to accomplish everything in every detail.
+
+    In case you experience this then adopt the depth of certain aspects of your solution to the time and choose the focus yourself.
+    Just outline the rest with some notes for example.
+
+    For sending simply pack everything and give some short notes on the dependecies we need to fulfill when setting it up for a testrun.
+
+
+Instructions:
+    - run "pip install -r requirements.txt"
+    - start server with "python start_server.py"
+    - add as many local players as you want with "python start_client.py"
+
+Estimations:
+    - Collision detection: 2 hours
+    - Set up network capabilities: 4 hours
+    - For everything else: 2 hours
+
+Possible features to be added:
+    - Resetting of ball
+    - Scoring system
+    - Choice of paddle for player

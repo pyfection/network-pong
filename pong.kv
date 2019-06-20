@@ -1,0 +1,53 @@
+<Paddle>:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Ball>:
+    size: 30, 30
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<Game>:
+    size: 500, 500
+    size_hint: None, None
+    canvas:
+        Color:
+            rgb: 0.2, 0, 0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Paddle:
+        id: paddle_left
+        move_x: False
+        move_y: True
+        size: 20, self.parent.height
+        center: self.width / 2, self.parent.height / 2
+    Paddle:
+        id: paddle_right
+        move_x: False
+        move_y: True
+        size: 20, self.parent.height
+        center: self.parent.width - self.width / 2, self.parent.height / 2
+    Paddle:
+        id: paddle_top
+        move_x: True
+        move_y: False
+        size: self.parent.width, 20
+        center: self.parent.width / 2, self.parent.height - self.height / 2
+    Paddle:
+        id: paddle_bottom
+        move_x: True
+        move_y: False
+        size: self.parent.width, 20
+        center: self.parent.width / 2, self.height / 2
+    Ball:
+        id: ball
+        center: self.parent.center
